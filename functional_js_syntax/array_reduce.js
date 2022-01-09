@@ -2,7 +2,10 @@
 const text = ['The ships', 'hung in the sky,', 'much the way', 'that bricks don`t']
 
 // Your Code Here
-
+const getSingleString = () => {
+  return text.reduce((acc, curr)=> acc + " "+curr)
+}
+console.log(getSingleString())
 // expected output: "The ships hung in the sky, much the way that bricks don't"
 
 // ----------------------------------------------------------
@@ -29,6 +32,18 @@ const scores = [
 
 // Your Code Here
 
+const getWinningTeam = () => {
+   return scores.reduce((acc, curr)=> {
+        if(acc.score> curr.score) {
+            return acc
+        }else {
+            return curr
+        }
+    })
+
+}
+
+console.log(getWinningTeam().team)
 // expected output: "C"
 
 // ----------------------------------------------------------
@@ -58,5 +73,13 @@ const ships = [
 ]
 
 // Your Code Here
+const getShipName = () => {
+  return ships.reduce((acc, curr)=> {
+      if(parseInt(acc.speed.slice(0,-1) )> parseInt(curr.speed.slice(0,-1)) ) return acc
+      return curr
+  })
+
+}
+console.log(getShipName().name)
 
 // Expected output: Tie Fighters
