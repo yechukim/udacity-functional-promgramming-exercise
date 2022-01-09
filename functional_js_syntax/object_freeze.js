@@ -20,7 +20,7 @@ currentShow.currentSeason = 5
 // but if we freeze the object
 Object.freeze(currentShow);
 
-currentShow.currentSeason = 5;
+//currentShow.currentSeason = 5;
 // Throws an error and current_season remains unchanged
 
 
@@ -28,3 +28,15 @@ currentShow.currentSeason = 5;
 
 // ----------------------------------------------------------
 // Directions: Create your own object and freeze it!
+const yechu = {
+    name: 'yeeun',
+    age:29,
+    likes:'movies'
+}
+
+yechu.age = 28
+console.log(yechu)
+
+Object.freeze(yechu)
+yechu.age = 30
+// Cannot assign to read only property 'age' of object '#<Object>'
