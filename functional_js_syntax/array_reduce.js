@@ -78,8 +78,18 @@ const getShipName = () => {
       if(parseInt(acc.speed.slice(0,-1) )> parseInt(curr.speed.slice(0,-1)) ) return acc
       return curr
   })
-
 }
+/*
+//이런식으로 바로 리턴값을 변수에 할당하도록 하는게 더 깔끔할듯!
+ const result = ships.reduce((previous, current) => {
+    const speed = parseInt(current.speed.slice(0, -1))
+    const previousSpeed = parseInt(previous.speed.slice(0, -1))
+    if (speed > previousSpeed) {
+        return current
+    }
+    return previous
+})
+ */
 console.log(getShipName().name)
 
 // Expected output: Tie Fighters
