@@ -1,7 +1,7 @@
 // ----------------------------------------------------------
 // FLAT EXERCISE
 // ----------------------------------------------------------
-// This short list of some marvel characters is abitrarily nested. Experiment with the effect of flattening to various depths.
+// This short list of some marvel characters is arbitrarily nested. Experiment with the effect of flattening to various depths.
 
 const characters = [
     ['Starlord', 'Gamora', 'Groot'],
@@ -11,12 +11,13 @@ const characters = [
     ['Professor X', 'Wolverine', 'Quicksilver', ['Magneto']]
 ]
 
-const results = characters.flat(1)
+//const results = characters.flat(1)
 // const results = characters.flat(2)
-// const results = characters.flat(3)
+ const results = characters.flat(3)
 // And what happens if you go past the max depth of the array?
-// const results = characters.flat(5)
-
+//3 넘어서면 결과는 똑같음 최대 nested된 Array 가 3까지 있음
+ //const results = characters.flat(5)
+//console.log(results)
 // ----------------------------------------------------------
 // FIND EXERCISE
 // ----------------------------------------------------------
@@ -33,6 +34,8 @@ const ids = [
     'IUABC'
 ]
 
+const abcValues = ids.find(alphabet=> alphabet.includes('ABC'))
+console.log(abcValues)
 
 // ----------------------------------------------------------
 // INCLUDE EXERCISES
@@ -52,6 +55,8 @@ const admins = [
     '098Xc8x76m3nb4aposi'
 ]
 
+const isUserAdmin = admins.includes(currentUserId)
+console.log(isUserAdmin)
 // ----------------------------------------------------------
 
 // 2. Checking between lists. Another thing that you might need to do in real life is check items between two arrays. Check if array B has any values that are also in array A. This becomes especially helpful when the values are hard to distinguish visually
@@ -75,3 +80,19 @@ const B = [
     '298374naskdj273ubsl',
     '098LKJnsvijevkwejf6'
 ]
+
+const areTheySame = A.map(a => B.includes(a))
+
+if(areTheySame.includes(false)) {
+    console.log('they are not the same')
+}else{
+    console.log('they are the same ')
+}
+// 참고 : 필터쓰는 방법
+// const C = A.filter(item => {
+//     console.log(B.includes(item))
+//     return B.includes(item)
+//
+// })
+//
+// console.log(C)
