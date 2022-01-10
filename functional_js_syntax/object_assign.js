@@ -16,15 +16,20 @@ let state = {
 }
 
 const incomingState = {
-    name: 'Mal',
+    name: 'Sara',
     role: 'Captain',
     favoriteThing: {
-        item: "Not complicated"
+        item: "Not complicated",
+        details: {
+            type: "everything I see"
+        }
     },
     history: ["Browncoat sergeant"]
+
 }
 
 state = Object.assign(state, incomingState);
+console.log(state)
 // Object.assign(target, source)
 
 // Resulting object
