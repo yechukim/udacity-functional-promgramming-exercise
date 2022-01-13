@@ -18,20 +18,46 @@ const avg = twoArrays.reduce((acc,curr,number,whole )=> {
 //console.log(avg)
 
 // Hazardous -----------------------------------------------
-// 3. A list of all objects (their id, name, max size in miles, and closest approach in miles) that are labeled potentially hazardous
-const danger = twoArrays.filter(item => item.is_potentially_hazardous_asteroid===true )
-const dangerObj = danger.map(dan => `
-id: ${dan.id}, 
-name:${dan.name}, 
-max size:${dan.estimated_diameter.miles.estimated_diameter_max}
-`)
-//console.log(dangerObj)
+// 3. A list of all objects (their id, name, max size in miles, and closest approach in miles)
+// that are labeled potentially hazardous
+const danger = twoArrays.filter(item => item['is_potentially_hazardous_asteroid'] === true)
+const dangerItems = danger.map(item => (
+    {
+        id: item.id,
+        name:item.name,
+        maxsize: item['estimated_diameter']['miles']['estimated_diameter_max'],
+        closest : item['close_approach_data'][0]['miss_distance']['miles']
+    }
+) )
+//console.log(dangerItems)
+// 3 --  other way destructuring
+/*
+const { id, name, estimated_diameter: { miles: { estimatedDiameterMax } }, closeApproachData } = asteroid
+return {
+    id: id,
+    name: name,
+    maxSize: estimatedDiameterMax,
+    closestApproach: closeApproachData[0].missDistance.miles
+}
+*/
 
 // Too Close for Comfort -----------------------------------
-// 4. A list of all objects (their id, name, max size in miles, and closest approach in miles) that have a miss_distance of less than 900,000 miles
-const lessThanThat = twoArrays.filter(item => item.close_approach_data[0].miss_distance.miles <900000)
-const selectedLess = lessThanThat.map(sel => `id: ${sel.id}, name: ${sel.name}, max size: ${sel.estimated_diameter.miles.estimated_diameter_max}`)
-console.log(selectedLess)
+// 4. A list of all objects (their id, name, max size in miles, and closest approach in miles)
+// that have a miss_distance of less than 900,000 miles
+const lessThanThat = twoArrays.filter(item => item['close_approach_data'][0]['miss_distance']['miles'] <900000)
+const lessItems = lessThanThat.map(item =>(
+    {
+        id: item.id,
+        name:item.name,
+        maxsize: item['estimated_diameter']['miles']['estimated_diameter_max'],
+        closest : item['close_approach_data'][0]['miss_distance']['miles']
+    }
+) )
+//console.log(lessItems)
 // Alert ---------------------------------------------------
-// 5. Of all the near-earth objects for this date, find the time that the asteroid with the nearest miss will be closest to earth. 
+// 5. Of all the near-earth objects for this date,
+// find the time that the asteroid with the nearest miss will be closest to earth.
 
+twoArrays.reduce((acc, curr)=> {
+
+})
