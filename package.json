@@ -1,0 +1,7 @@
+{
+  "name": "udacity-functional-promgramming-exercise",
+  "version": "1.0.0",
+  "dependencies": {
+    "immutable": "^4.0.0"
+  }
+}
