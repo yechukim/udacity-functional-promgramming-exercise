@@ -10,31 +10,34 @@ import { DAMAGE_SHIELD, REPAIR_SHIELD } from './actions'
 
 // We set an initial state so that there is a value in state available, even before any actions have occured
 const initialState = {
-	shieldLevel: 100,
+    shieldLevel: 100,
 }
 
 // the reducer takes in the current state (if available - if not then it defaults to the initial state) and an action
 const shieldsReducer = (state = initialState, action) => {
     switch (action.type) {
         case DAMAGE_SHIELD:
-		
-			// YOUR TURN: if the action object has a property called "amount", use destructuring to save that value to a const
-			// YOUR CODE HERE
-		
+
+            // YOUR TURN: if the action object has a property called "amount", use destructuring to save that value to a const
+            // YOUR CODE HERE
+            const { amount } = action // const amount = action.amount
             let { shieldLevel } = state
 
+
             // YOUR TURN: You now have the shield level from state and amount of change from the action. Given that this is the DAMAGE_SHIELD reducer, write the logic to reflect what should happen
-			// YOUR CODE HERE
-			
+            // YOUR CODE HERE
+            shieldLevel -= amount
+
             return {
                 ...state,
                 shieldLevel,
             }
 
         case REPAIR_SHIELD:
-            
-			// YOUR TURN: Using the reducer above as a template, fill in the contents of the REPAIR_SHIELD reducer
-			
+            const { amount } = action
+            let { shieldLevel } = state
+            // YOUR TURN: Using the reducer above as a template, fill in the contents of the REPAIR_SHIELD reducer
+            shieldLevel += amount
             return {
                 ...state,
                 shieldLevel,
